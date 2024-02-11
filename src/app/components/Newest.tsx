@@ -23,6 +23,7 @@ export default async function Newest() {
 
     return (
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between">
             <h2 className="text-3xl font-semibold mb-2">Newest Products</h2>
             <Link href="/all" className="text-primary flex items-center gap-x-1 mb-8">
                 See All{' '}
@@ -30,10 +31,12 @@ export default async function Newest() {
                     <ArrowRightIcon />
                 </span>
             </Link>
+            </div>
+            
             <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
                 {data.map((product) => (
                     <div key={product._id} className="group flex flex-col gap-4">
-                        <div className="overflow-hidden rounded-md bg-slate-100 group-hover:opacity=75 p-3">
+                        <div className="overflow-hidden rounded-md group-hover:opacity=75 p-3">
                         <Image 
                             src={product.imageUrl} 
                             alt={product.name} 

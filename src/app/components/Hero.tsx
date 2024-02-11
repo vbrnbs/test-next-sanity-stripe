@@ -37,7 +37,7 @@ export default async function Hero() {
             <Image
               src={urlFor(data[0].image2.asset._ref).url()}
               alt="Hero photo 2"
-              width={500}
+              width={700}
               height={500}
               priority
               className="h-full w-full object-cover object-center"
