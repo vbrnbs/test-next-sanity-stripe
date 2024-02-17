@@ -20,6 +20,11 @@ export default {
             type: 'number',
         },
         {
+            name: 'price_id',
+            title: 'Stripe Price ID',
+            type: 'string',
+        },
+        {
             name: 'images',
             title: 'Product Images',
             type: 'array',

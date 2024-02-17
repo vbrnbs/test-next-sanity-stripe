@@ -11,6 +11,7 @@ export interface fullProduct {
     _id: string;
     images: any;
     price: number;
+    price_id: string;
     name: string;
     description: string;
     slug: string;

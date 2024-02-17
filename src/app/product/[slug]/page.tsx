@@ -1,3 +1,4 @@
+import AddToBag from "@/app/components/AddToBag";
 import ImageGallery from "@/app/components/ImageGallery";
 import { fullProduct } from "@/app/interface";
 import { client } from "@/app/lib/sanity";
@@ -12,7 +13,8 @@ async function getData(slug: string) {
           name,
           description,
           "slug": slug.current,
-          "categoryName": category->name
+          "categoryName": category->name,
+          price_id
       }`;
   const data = await client.fetch(query);
   return data;
@@ -34,7 +36,7 @@ export default async function ProductPage({
               <span className="text-sm text-gray-500 inline-block mb-0.5">
                 {data.categoryName}
               </span>
-              <h1 className="text-3xl font-bold">{data.name}</h1>
+              <h1 className="text-3xl font-bold mb-2">{data.name}</h1>
               <Button className="rounded-full gap-x-2">
                 <span className="text-sm">4.2</span>
                 <StarIcon className="w-5 h-5 text-yellow-500" />
@@ -44,7 +46,7 @@ export default async function ProductPage({
                 <span className="text-sm text-gray-500">10 Reviews</span>
               </span>
             </div>
-           
+
             <div className="flex items-center gap-2 mt-8">
               <span className="text-2xl font-bold">${data.price}</span>
               <span className="text-lg text-red-500 line-through">
@@ -74,9 +76,14 @@ export default async function ProductPage({
               </div>
               <p className="text-lg my-4 tracking-wide">{data.description}</p>
               <div>
-                <Button className="">
-                  Add to Cart
-                </Button>
+                <AddToBag
+                  currency="USD"
+                  description={data.description}
+                  image={data.images[0]}
+                  name={data.name}
+                  price={data.price}
+                  price_id={data.price_id}
+                />
                 <Button className="ml-2 border shadow-sm" variant={"secondary"}>
                   Checkout Now
                 </Button>
