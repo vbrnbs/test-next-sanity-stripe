@@ -1,6 +1,8 @@
 import React from 'react'
 import Hero from './components/Hero'
 import Newest from './components/Newest'
+export const dynamic = "force-dynamic";
+
 
 const Home = () => {
   return (

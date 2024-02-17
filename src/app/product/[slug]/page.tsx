@@ -5,6 +5,8 @@ import { client } from "@/app/lib/sanity";
 import { Button } from "@/components/ui/button";
 import { StarIcon, TruckIcon } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 async function getData(slug: string) {
   const query = `*[_type == 'product' && slug.current == "${slug}"][0] {
         _id,
